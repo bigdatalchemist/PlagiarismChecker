@@ -1,13 +1,22 @@
 import streamlit as st
 import nltk
+import os
 from text_processing import preprocess_text
 from similarity import check_word_similarity
 from webscrapper import extract_text_from_url
 from utils import extract_text
 
+# Set a persistent download directory
+NLTK_DIR = os.path.join(os.path.dirname(__file__), "nltk_data")
+os.makedirs(NLTK_DIR, exist_ok=True)
+
+# Set NLTK data path to the new directory
+nltk.data.path.append(NLTK_DIR)
+
+
 # Ensure NLTK resources are available
-nltk.download('punkt', quiet = True)
-nltk.download('stopwords', quiet = True)
+nltk.download('punkt', download_dir=NLTK_DIR, quiet = True)
+nltk.download('stopwords', download_dir=NLTK_DIR, quiet = True)
 
 st.title("🔍 Plagiarism Checker")
 
