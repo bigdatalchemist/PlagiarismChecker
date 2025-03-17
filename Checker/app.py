@@ -1,22 +1,25 @@
 import streamlit as st
 import nltk
 import os
+
 from text_processing import preprocess_text
 from similarity import check_word_similarity
 from webscrapper import extract_text_from_url
 from utils import extract_text
 
-# Set a persistent download directory
-NLTK_DIR = os.path.join(os.path.dirname(__file__), "nltk_data")
+# Get the absolute path of the current directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Set a persistent NLTK data directory inside the project
+NLTK_DIR = os.path.join(BASE_DIR, "nltk_data")
 os.makedirs(NLTK_DIR, exist_ok=True)
 
-# Set NLTK data path to the new directory
+# Add the directory to NLTK's path
 nltk.data.path.append(NLTK_DIR)
 
-
-# Ensure NLTK resources are available
-nltk.download('punkt', download_dir=NLTK_DIR, quiet = True)
-nltk.download('stopwords', download_dir=NLTK_DIR, quiet = True)
+# Ensure the necessary NLTK resources are downloaded
+nltk.download("punkt", download_dir=NLTK_DIR, quiet=True)
+nltk.download("stopwords", download_dir=NLTK_DIR, quiet=True)
 
 st.title("🔍 Plagiarism Checker")
 
@@ -33,7 +36,7 @@ if option == "Enter Text":
 elif option == "Upload File":
     uploaded_file1 = st.file_uploader("Upload First Document", type=["txt", "docx"])
     uploaded_file2 = st.file_uploader("Upload Second Document", type=["txt", "docx"])
-    
+
     if uploaded_file1 and uploaded_file2:
         text1 = extract_text(uploaded_file1)
         text2 = extract_text(uploaded_file2)
