@@ -6,8 +6,8 @@ from webscrapper import extract_text_from_url
 from utils import extract_text
 
 # Ensure NLTK resources are available
-nltk.download('punkt')
-nltk.download('stopwords')
+nltk.download('punkt', quiet = True)
+nltk.download('stopwords', quiet = True)
 
 st.title("🔍 Plagiarism Checker")
 
