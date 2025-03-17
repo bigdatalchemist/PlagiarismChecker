@@ -1,8 +1,13 @@
 import streamlit as st
+import nltk
 from text_processing import preprocess_text
 from similarity import check_word_similarity
 from webscrapper import extract_text_from_url
 from utils import extract_text
+
+# Ensure NLTK resources are available
+nltk.download('punkt')
+nltk.download('stopwords')
 
 st.title("🔍 Plagiarism Checker")
 
@@ -48,4 +53,3 @@ if text1 and text2:
         st.warning("⚠️ Moderate similarity detected.")
     else:
         st.success("✅ Low similarity detected. Texts are mostly unique.")
-
