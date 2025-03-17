@@ -3,7 +3,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
-# Download NLTK resources
+# Download necessary NLTK resources
 nltk.download('punkt', quiet=True)
 nltk.download('stopwords', quiet=True)
 
@@ -37,8 +37,3 @@ def preprocess_text(text):
     words = [word for word in words if word not in STOPWORDS]  # Remove stopwords
 
     return " ".join(words)  # Return cleaned text as a string
-
-# Test the function
-if __name__ == "__main__":
-    sample_text = "Hello! This is a sample text, for testing the preprocessing function."
-    print("Processed Text:", preprocess_text(sample_text))
