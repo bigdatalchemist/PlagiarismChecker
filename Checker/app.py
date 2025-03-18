@@ -31,6 +31,7 @@ else:
 # Ensure the necessary NLTK resources are downloaded
 try:
     nltk.download('punkt', download_dir=NLTK_DIR, quiet=True)
+    nltk.download('punkt_tab', download_dir=NLTK_DIR, quiet=True)
     nltk.download('stopwords', download_dir=NLTK_DIR, quiet=True)
     st.success("✅ NLTK data downloaded successfully!")
 except Exception as e:
