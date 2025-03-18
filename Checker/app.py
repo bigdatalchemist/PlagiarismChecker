@@ -17,17 +17,6 @@ os.makedirs(NLTK_DIR, exist_ok=True)
 # Add the directory to NLTK's path
 nltk.data.path.append(NLTK_DIR)
 
-# Debugging Info for NLTK Data (Placed at the Beginning)
-st.subheader("Debugging Info")
-st.write("Current Working Directory:", os.getcwd())
-
-if os.path.exists(NLTK_DIR):
-    st.success("✅ nltk_data EXISTS in the Streamlit environment")
-    st.write("Contents of nltk_data:", os.listdir(NLTK_DIR))
-else:
-    st.error("❌ nltk_data NOT FOUND in the Streamlit environment")
-    st.write("Available folders:", os.listdir("."))
-
 # Ensure the necessary NLTK resources are downloaded
 try:
     nltk.download('punkt', download_dir=NLTK_DIR, quiet=True)
