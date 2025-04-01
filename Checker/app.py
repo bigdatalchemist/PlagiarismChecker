@@ -1,7 +1,6 @@
 import streamlit as st
 import nltk
 import os
-
 from text_processing import preprocess_text
 from similarity import (
     check_word_similarity,
@@ -23,12 +22,18 @@ os.makedirs(NLTK_DIR, exist_ok=True)
 nltk.data.path.append(NLTK_DIR)
 
 # Ensure the necessary NLTK resources are downloaded
-nltk_resources = ["punkt", "punkt_tab", "stopwords"]
-for resource in nltk_resources:
-    try:
-        nltk.download(resource, download_dir=NLTK_DIR, quiet=True)
-    except FileExistsError:
-        pass
+nltk.download('punkt', download_dir=NLTK_DIR, quiet=True)
+nltk.download('stopwords', download_dir=NLTK_DIR, quiet=True)
+
+def load_css():
+    """Load custom CSS from an external file."""
+    css_file = os.path.join(BASE_DIR, "styles.css")
+    if os.path.exists(css_file):
+        with open(css_file, "r") as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+# Load the CSS file
+load_css()
 
 st.title("🔍 Plagiarism Checker")
 
