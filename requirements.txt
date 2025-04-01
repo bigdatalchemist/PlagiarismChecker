@@ -7,3 +7,4 @@ beautifulsoup4
 requests
 python-docx
 sentence-transformers
+pymupdf
