@@ -23,9 +23,12 @@ os.makedirs(NLTK_DIR, exist_ok=True)
 nltk.data.path.append(NLTK_DIR)
 
 # Ensure the necessary NLTK resources are downloaded
-nltk.download('punkt', download_dir=NLTK_DIR, quiet=True)
-nltk.download('stopwords', download_dir=NLTK_DIR, quiet=True)
-nltk.download('punkt_tab', download_dir=NLTK_DIR, quiet=True)
+nltk_resources = ["punkt", "punkt_tab", "stopwords"]
+for resource in nltk_resources:
+    try:
+        nltk.download(resource, download_dir=NLTK_DIR, quiet=True)
+    except FileExistsError:
+        pass
 
 st.title("🔍 Plagiarism Checker")
 
