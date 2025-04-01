@@ -43,8 +43,8 @@ if option == "Enter Text":
     text2 = st.text_area("Enter Second Text")
 
 elif option == "Upload File":
-    uploaded_file1 = st.file_uploader("Upload First Document", type=["txt", "docx"])
-    uploaded_file2 = st.file_uploader("Upload Second Document", type=["txt", "docx"])
+    uploaded_file1 = st.file_uploader("Upload First Document", type=["txt", "docx", "pdf"])
+    uploaded_file2 = st.file_uploader("Upload Second Document", type=["txt", "docx", "pdf"])
 
     if uploaded_file1 and uploaded_file2:
         text1 = extract_text(uploaded_file1)
