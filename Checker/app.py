@@ -27,7 +27,7 @@ nltk.download('stopwords', download_dir=NLTK_DIR, quiet=True)
 
 def load_css():
     """Load custom CSS from an external file."""
-    css_file = os.path.join(BASE_DIR, "styles.css")
+    css_file = os.path.join(BASE_DIR, "Checker", "styles.css")
     if os.path.exists(css_file):
         with open(css_file, "r") as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
