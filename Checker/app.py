@@ -23,6 +23,7 @@ nltk.data.path.append(NLTK_DIR)
 
 # Ensure the necessary NLTK resources are downloaded
 nltk.download('punkt', download_dir=NLTK_DIR, quiet=True)
+nltk.download('punkt_tab', download_dir=NLTK_DIR, quiet=True)
 nltk.download('stopwords', download_dir=NLTK_DIR, quiet=True)
 
 def load_css():
