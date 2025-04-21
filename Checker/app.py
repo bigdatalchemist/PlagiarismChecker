@@ -22,9 +22,8 @@ os.makedirs(NLTK_DIR, exist_ok=True)
 nltk.data.path.append(NLTK_DIR)
 
 # Ensure the necessary NLTK resources are downloaded
-nltk.download('punkt', download_dir=NLTK_DIR, quiet=True)
-nltk.download('punkt_tab', download_dir=NLTK_DIR, quiet=True)
-nltk.download('stopwords', download_dir=NLTK_DIR, quiet=True)
+nltk.download('punkt')
+nltk.download('stopwords')
 
 def load_css():
     """Load custom CSS from an external file."""
